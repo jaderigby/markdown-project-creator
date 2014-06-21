@@ -2,19 +2,95 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" type="text/css" href="../foundation5/css/foundation.min.css" />
-		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../foundation5/css/foundation.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<script src="../../js/jquery-1.11.1.min.js"></script>
 		<title></title>
+    <script>
+      /* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon( [ "../../css/icons.data.svg.css", "../../css/icons.data.png.css", "../../css/icons.fallback.css" ] );
+    </script>
+    <noscript>link href="icons.fallback.css" rel="stylesheet"></noscript>
 	</head>
 	<body>
 		<div id="container" class="row">
+      <div id="selector" class="mark-settings-trigger toggle item-click-default" data-target="#settings"></div>
 			<div class="medium-12 column">
+				<div id="settings" class="item-click-default">
+					<button id="dark" class="btn-selection">Dark</button>
+					<button id="light" class="btn-selection">Light</button>
+					<button id="minimal" class="btn-selection">Minimal</button>
+				</div>
 				<%=content%>
 			</div>
 		</div>
 		<script>
-			$(document).foundation();
+			var colorScheme = localStorage.jrColorScheme;
+      (function() {
+        if (colorScheme === undefined) {
+          $('body').attr('class', 'dark');
+          $('#dark').addClass('chosen');
+        }
+        else {
+          $('body').attr('class', colorScheme);
+          var myId = '#' + colorScheme;
+          $(myId).addClass('chosen');
+        }
+      })();
+
+      //===== find and highlight current page on the navbar
+      var fullpath = window.location.pathname;
+      var pat = /[A-Za-z0-9_-]+\.[A-Za-z]{2,4}/;
+      var currentUrl = pat.exec(fullpath);
+
+      var navItems = $('nav a');
+
+      for (var i = 0; i < navItems.length; i++) {
+        var myItem = $(navItems[i]).attr('href');
+        if (myItem === currentUrl[0]) {
+          $(navItems[i]).addClass('active');
+        }
+      }
+
+      //===== add custom tag elements
+      var myString = $('#container').html();
+      myString = myString.replace(/\[author\]/g, '<span class="author">');
+      myString = myString.replace(/\[\/author\]/g, '</span>');
+      myString = myString.replace(/\[center\]/g, '<span class="center">');
+      myString = myString.replace(/\[\/center\]/g, '</span>');
+      $('#container').html(myString);
+      
+			$('#container').delegate('.toggle', 'click', function() {
+				var targetItem = $(this).data('target');
+				$(targetItem).toggleClass('active');
+			});
+			// Behavior for clicking outside to close objects
+			$(document).on('click', function(e) {
+
+				var clickObject = e.target;
+
+				//===== Main Menu
+				if (!$(clickObject).parents('.item-click-default').length && !$(clickObject).hasClass('item-click-default')) {
+					$('#settings').removeClass('active');
+				}
+			});
+			function changeScheme(mySelection) {
+				localStorage.jrColorScheme = mySelection;
+				colorScheme = mySelection;
+			}
+			$('button.btn-selection').click(function() {
+				$('.btn-selection').removeClass('chosen');
+				$(this).addClass('chosen');
+				var qualifier = $(this).attr('id');
+				$('body').attr('class', qualifier);
+				changeScheme(qualifier);
+        var myItem = document.getElementsByTagName('body')[0];
+        myItem.style.display='none';
+        myItem.offsetHeight; // no need to store this anywhere, the reference is enough
+        myItem.style.display='block';
+			});
 		</script>
 	</body>
 </html>

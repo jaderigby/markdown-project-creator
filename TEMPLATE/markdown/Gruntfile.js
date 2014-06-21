@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 		// Project settings
 		config: {
 			// Configurable paths
-			app: 'docs',
+			app: '__docs__',
 			dist: 'dist'
 		},
 

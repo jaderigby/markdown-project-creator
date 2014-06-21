@@ -1,7 +1,7 @@
 Sample Document
 ===============
 
-<span class="center">![](http://oi60.tinypic.com/r09pxt.jpg)</span>
+<span class="center">![](_media/images/sample-image1.jpg)</span>
 
 Subheadings Are Cool!
 ---------------------
@@ -19,7 +19,7 @@ Subheadings Are Cool!
 
 **Example of an image:** 
 
-![Jam On It!](http://oi60.tinypic.com/vmw58w.jpg)
+![Jam On It!](_media/images/sample-image2.jpg)
 
 **A List**
 - Item 1
