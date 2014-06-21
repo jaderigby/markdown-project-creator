@@ -18,6 +18,7 @@
 		<div id="container" class="row">
       <div id="selector" class="mark-settings-trigger toggle item-click-default" data-target="#settings"></div>
 			<div class="medium-12 column">
+        <div id="footnotePopup"></div>
 				<div id="settings" class="item-click-default">
 					<button id="dark" class="btn-selection">Dark</button>
 					<button id="light" class="btn-selection">Light</button>
@@ -54,12 +55,54 @@
         }
       }
 
+            $(function() {
+  $('a[title="anchor"]').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 250);
+        return false;
+      }
+    }
+  });
+});
+
       //===== add custom tag elements
       var myString = $('#container').html();
       myString = myString.replace(/\[author\]/g, '<span class="author">');
       myString = myString.replace(/\[\/author\]/g, '</span>');
       myString = myString.replace(/\[center\]/g, '<span class="center">');
       myString = myString.replace(/\[\/center\]/g, '</span>');
+      myString = myString.replace(/<p>\[collection\]<\/p>/g, '<span class="collection">');
+      myString = myString.replace(/<p>\[\/collection\]<\/p>/g, '</span>');
+      //===== Footnote Support
+      var footnoteRef = /\[\^[1-9]*\]/g;
+      var myCount = 0;
+      myString = myString.replace(footnoteRef, function() {
+        myCount += 1;
+        var myObj = ' <a class="footnote-item" href="#fn-' + myCount + '">[' + myCount + ']</a>';
+        return myObj;
+      });
+
+      var footnotePat = /\[[1-9]*\]:/g;
+      // Reset counter for re-use
+      myCount = 0;
+      myString = myString.replace(footnotePat, function() {
+        myCount += 1;
+        var myObj = '<div id="fn-' + myCount + '" style="display: none;">' + myCount + '. </span>';
+        return myObj;
+      });
+
+      $('#container').delegate('.footnote-item', 'click', function() {
+        var myFooty = $(this).attr('href');
+        $('#footnotePopup').html($(myFooty).html());
+        $(this).append($('#footnotePopup'));
+        $('#footnotePopup', this).toggleClass('active');
+      });
+
       $('#container').html(myString);
       
 			$('#container').delegate('.toggle', 'click', function() {
