@@ -1,13 +1,202 @@
-body {
+/*=================================
+	COLORS
+==================================*/
+
+/*============= dark =============*/
+body.dark {
 	background-color: #444;
 }
 
+body.dark #container {
+	border-color: #CDCDCD;
+	background-color: #EFEFEF;
+}
+
+body.dark nav {
+	background-color: #C7C7C7;
+}
+
+body.dark nav a {
+	color: #006B8F;
+}
+
+body.dark nav a.active {
+	color: white;
+	background-color: #8D8D8D;
+}
+
+body.dark nav a.active:hover {
+	color: white;
+}
+
+body.dark nav a:hover {
+	color: black;
+	background-color: #AAA;
+}
+
+body.dark h2 {
+	margin-bottom: 1.5rem;
+	border-bottom-color: #9E9E9E;
+}
+
+body.dark blockquote {
+	background-color: #D8D8D8;
+}
+
+body.dark blockquote p {
+	color: #4E4E4E;
+}
+
+body.dark blockquote:before, 
+body.dark blockquote:after {
+	color: #ADADAD;
+}
+
+body.dark a[title="anchor"]:hover {
+	background-color: inherit !important;
+}
+
+body.dark #footnotePopup {
+	background-color: white;
+	border-color: #9E9E9E;
+}
+
+body.dark hr {
+	border-color: #9E9E9E;
+}
+
+body.dark .center img {
+	background-color: #e9e9e9;
+}
+
+/*============= light =============*/
 body.light {
 	background-color: #DDD;
 }
 
+body.light #container {
+	border-color: #CDCDCD;
+}
+
+body.light nav {
+	background-color: #DFDFDF;
+}
+
+body.light nav a.active {
+	background-color: #B4B4B4;
+}
+
+body.light nav a:hover {
+	background-color: #CFCFCF;
+}
+
+body.light h2 {
+	margin-bottom: 1.5rem;
+	border-bottom: 1px solid #CCC;
+}
+
+body.light #container {
+	background-color: #FFF;
+}
+
+body.light blockquote {
+	background-color: #E9E9E9;
+}
+
+body.light blockquote:before, 
+body.light blockquote:after {
+	color: #BBB;
+}
+
+body.light a[title="anchor"]:hover {
+	background-color: inherit !important;
+}
+
+body.light #footnotePopup {
+	background-color: white;
+	border-color: #CCC;
+}
+
+body.light hr {
+	border-color: #CCC;
+}
+
+body.light .center img {
+	background-color: #e9e9e9;
+}
+
+/*============= minimal =============*/
 body.minimal {
 	background-color: #e1e1e1;
+}
+
+body.minimal #container {
+	border-color: #CDCDCD;
+}
+
+body.minimal nav {
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	border-color: #DDD;
+	background-color: none;
+	background: none;
+}
+
+body.minimal nav a.active {
+	color: black;
+	background-color: none;
+	background: none;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-color: #DDD;
+}
+
+body.minimal nav a:hover {
+	color: #66A3FF; /* C06817, 808080 */
+	background-color: none;
+	background: none;
+}
+
+body.minimal h2 {
+	margin-bottom: 1.5rem;
+	border-bottom: 1px solid #CCC;
+}
+
+body.minimal #container {
+	background-color: #FFF;
+}
+
+body.minimal blockquote {
+	background-color: #F0F0F0;
+}
+
+body.minimal blockquote:before, 
+body.minimal blockquote:after {
+	color: #BBB;
+}
+
+body.minimal a[title="anchor"]:hover {
+	color: #66A3FF;
+	background-color: inherit !important;
+}
+
+body.minimal #footnotePopup {
+	background-color: white;
+	border-color: #CCC;
+}
+
+body.minimal hr {
+	border-color: #CCC;
+}
+
+body.minimal .center img {
+	background-color: #e9e9e9;
+}
+
+/*==================== end of colors */
+
+body {
+	background-color: #444;
 }
 
 body.minimal #container {
@@ -45,8 +234,12 @@ nav:after {
 nav a {
 	display: block;
 	float: left;
-	padding: 15px 15px;
+	padding: 15px;
 	transition: background-color 0.15s ease-in-out;
+}
+
+nav a:first-child {
+	margin-left: -15px;
 }
 
 nav a:hover {
@@ -199,7 +392,15 @@ blockquote cite:before, blockquote .author:before {
 }
 
 a[title="anchor"] {
+	padding: 10px 12px;
 	text-decoration: underline;
+}
+a[title="anchor"]:first-child {
+	margin-left: -12px;
+}
+
+a[title="anchor"]:hover {
+	background-color: inherit !important;
 }
 
 .collection h3:before, .collection h4:before, .collection h5:before {
