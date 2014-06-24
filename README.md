@@ -23,28 +23,22 @@ In addition to standard markdown features, the "Markdown Project Creator" also s
 - The "Markdown Project Creator" uses a special navigation option.  This is easy to set up: Simply enclose a collection of links in the HTML5 "nav" tag.
 Example:
 
-	`<nav>`
-
-	`[Home](_main.html)`
-
-	`[Story](story.html)`
-
-	`[Notes](notes.html)`
-
-	`</nav>`
+	```
+	<nav>
+	[Home](_main.html)
+	[Story](story.html)
+	[Notes](notes.html)
+	</nav>
+	```
 
 - For a navigation bar set up for easy navigation of an individual page (page anchors), use the following pattern:
 **Note:** The flavor of markdown that the "Markdown Project Creator" uses automatically adds id's to your headings.  So all of your headings will have built-in id anchors for your links to reference
 
-	`<nav>`
-
-	`[Prologue](#prologue "anchor")`
-	
-	`[Chapter 1](#chapter-1 "anchor")`
-	
-	`[Chapter 2](#chapter-2 "anchor")`
-	
-	`[Epilogue](#epilogue "anchor")`
-	
-	`</nav>`
-
+	```
+	<nav>
+	[Prologue](#prologue "anchor")
+	[Chapter 1](#chapter-1 "anchor")
+	[Chapter 2](#chapter-2 "anchor")
+	[Epilogue](#epilogue "anchor")
+	</nav>
+	```
