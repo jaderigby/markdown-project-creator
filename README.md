@@ -15,7 +15,7 @@ Once Grunt and Node.js are set up, download the package and run "markdown-projec
 3. Click on "Download Dependencies".  This will open a new terminal window, and then run through downloading all of the needed npm packages in the background.  You will notice these processes running in the parent window.  Monitor this terminal window for completeness.  Once the process is complete, you may go to Step 4.
 4. Click "Watch Files" to begin watching your files.  There are several folders and files within the project folder, but the one that you are concerned with is "docs".  Within docs, you will find a folder called "Markdown".  Here, is where you will add your Markdown files. In fact, you can use the "Sample.markdown" file as an example of how to create your own Markdown files.  While "Watch Files" is running, anything you save will create/edit the equivalent html file.  When you are finished, you can open the html file in a web browser and review the results.  Any images or videos that you would like to add locally can go in the "media" folder.
 
-In addition to standard markdown features, the "Markdown Project Creator" also supports the following:
+###### In addition to standard markdown features, the "Markdown Project Creator" also supports the following:
 
 - For blockquotes, you can use the pattern "[author]Johnny Appleseed[/author]" to style a quote author.  *This interprets to `<cite></cite>` on the client side.
 - To center elements, use `[center]my content[/center]`. *This interprets to `<div class="center"></div>` on the client side.
