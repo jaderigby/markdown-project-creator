@@ -32,13 +32,13 @@ Once Grunt and Node.js are set up, download the package and run "markdown-projec
 
 **Example:**
 
-	```
-	<nav>
-	[Home](_main.html)
-	[Story](story.html)
-	[Notes](notes.html)
-	</nav>
-	```
+```
+<nav>
+[Home](_main.html)
+[Story](story.html)
+[Notes](notes.html)
+</nav>
+```
 
 - For a navigation bar set up for easy navigation of an individual page (page anchors), use the following pattern:
 **Note:** The flavor of markdown that the "Markdown Project Creator" uses automatically adds id's to your headings.  So all of your headings will have built-in id anchors for your links to reference.
