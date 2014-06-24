@@ -17,9 +17,9 @@ Once Grunt and Node.js are set up, download the package and run "markdown-projec
 
 In addition to standard markdown features, the "Markdown Project Creator" also supports the following:
 
-- For blockquotes, you can use the pattern "[author]Johnny Appleseed[/author]" to style a quote author.  *This interprets to `<cite></cite>` on the client side.*
-- To center elements, use `[center]my content[/center]`. *This interprets to `<div class="center"></div>` on the client side.*
-- To uniquely set a section of content apart, you can use `[collection]my content[/collection]`.  This is especially useful if you add your own custom styles to the "collection" class. *This interprets to `<div class="collection"></div>` on the client side.*
+- For blockquotes, you can use the pattern "[author]Johnny Appleseed[/author]" to style a quote author.  *This interprets to `<cite></cite>` on the client side.
+- To center elements, use `[center]my content[/center]`. *This interprets to `<div class="center"></div>` on the client side.
+- To uniquely set a section of content apart, you can use `[collection]my content[/collection]`.  This is especially useful if you add your own custom styles to the "collection" class. *This interprets to `<div class="collection"></div>` on the client side.
 - The "Markdown Project Creator" uses a special navigation option.  This is easy to set up: Simply enclose a collection of links in the HTML5 "nav" tag.
 Example:
 
