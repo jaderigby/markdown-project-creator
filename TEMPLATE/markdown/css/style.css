@@ -465,6 +465,31 @@ collection h3:before, collection h4:before, collection h5:before {
 	position: relative;
 }
 
+a#backToTop {
+	position: fixed;
+	color: white;
+	display: block;
+	padding: 9px;
+	width: 50px;
+	height: 50px;
+	font-size: 2rem;
+	background-color: black;
+	bottom: 0;
+	margin-left: 60px;
+	z-index: 2;
+	text-decoration: none;
+	border-radius: 8px 8px 0 0;
+	opacity: 0.25;
+	transition: all 0.17s ease-in-out;
+	-webkit-transform: translateY(20px);
+}
+
+a#backToTop:hover {
+	background-color: black !important;
+	opacity: 0.7;
+	-webkit-transform: translateY(0);
+}
+
 h6 {
 	font-weight: bold;
 }

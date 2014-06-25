@@ -15,10 +15,12 @@
     <noscript>link href="icons.fallback.css" rel="stylesheet"></noscript>
 	</head>
 	<body>
+    <div id="overlay"></div>
+    <div id="footnotePopup"></div>
 		<div id="container" class="row">
+      <a href="#container" id="backToTop" title="anchor">&#8679;</a>
       <div id="selector" class="mark-settings-trigger toggle item-click-default" data-target="#settings"></div>
 			<div class="medium-12 column">
-        <div id="footnotePopup"></div>
 				<div id="settings" class="item-click-default">
 					<button id="dark" class="btn-selection">Dark</button>
 					<button id="light" class="btn-selection">Light</button>
@@ -28,6 +30,7 @@
 			</div>
 		</div>
 		<script>
+      document.createElement('collection');
 			var colorScheme = localStorage.jrColorScheme;
       (function() {
         if (colorScheme === undefined) {
@@ -55,6 +58,7 @@
         }
       }
 
+      // Animate anchor clicks
             $(function() {
   $('a[title="anchor"]').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -81,15 +85,18 @@
 
       //===== add custom tag elements
       var myString = $('#container').html();
-      myString = replaceElement(/\[author\][^`].*\[\/author\]/g, /\[author\]/, '<cite>', /\[\/author\]/, '</cite>', myString);
-      myString = replaceElement(/\[center\][^`].*\[\/center\]/g, /\[center\]/, '<span class="center">', /\[\/center\]/, '</span>', myString);
-      myString = replaceElement(/\[collection\][^`].*\[\/collection\]/g, /\[collection\]/, '<span class="collection">', /\[\/collection\]/, '</span>', myString);
+      myString = myString.replace(/<p\>\[author\]/g, '<p><cite>');
+      myString = myString.replace(/\[\/author\]<\/p\>/g, '</cite></p>');
+      myString = myString.replace(/\[center\]/g, '<span class="center">');
+      myString = myString.replace(/\[\/center\]/g, '</span>');
+      myString = myString.replace(/<p>\[collection\]<\/p>/g, '<div class="collection">');
+      myString = myString.replace(/<p>\[\/collection\]<\/p>/g, '</div>');
       //===== Footnote Support
       var footnoteRef = /\[\^[1-9]*\]/g;
       var myCount = 0;
       myString = myString.replace(footnoteRef, function() {
         myCount += 1;
-        var myObj = ' <a class="footnote-item" href="#fn-' + myCount + '">[' + myCount + ']</a>';
+        var myObj = ' <a class="footnote-item toggle" data-target="#footnotePopup" href="#fn-' + myCount + '">[' + myCount + ']</a>';
         return myObj;
       });
 
@@ -105,9 +112,20 @@
       $('#container').delegate('.footnote-item', 'click', function() {
         var myFooty = $(this).attr('href');
         $('#footnotePopup').html($(myFooty).html());
-        $(this).append($('#footnotePopup'));
-        $('#footnotePopup', this).toggleClass('active');
+        $('#overlay').css('display', 'block');
       });
+
+      $('body').delegate('#overlay', 'click', function() {
+        $('#overlay').css('display', 'none');
+        $('#footnotePopup').removeClass('active');
+      });
+
+      // $('#container').delegate('.footnote-item', 'click', function() {
+      //   var myFooty = $(this).attr('href');
+      //   $('#footnotePopup').html($(myFooty).html());
+      //   $(this).append($('#footnotePopup'));
+      //   $('#footnotePopup', this).toggleClass('active');
+      // });
 
       $('#container').html(myString);
       
