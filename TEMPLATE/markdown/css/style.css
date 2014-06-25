@@ -58,7 +58,7 @@ body.dark a[title="anchor"]:hover {
 
 body.dark #footnotePopup {
 	background-color: white;
-	border-color: #9E9E9E;
+	border-color: #626262;
 }
 
 body.dark hr {
@@ -66,7 +66,7 @@ body.dark hr {
 }
 
 body.dark .center img {
-	background-color: #e9e9e9;
+	background-color: #DBDBDB;
 }
 
 /*============= light =============*/
@@ -215,6 +215,11 @@ nav {
 	margin-bottom: 30px;
 	background-color: #DFDFDF;
 	*zoom: 1;
+}
+
+nav+nav {
+	margin-top: -30px;
+	border-top: 1px solid #969696;
 }
 
 nav a.active {
@@ -367,7 +372,7 @@ blockquote:before {
 blockquote:after {
 	position: absolute;
 	right: 5px;
-	bottom: -90px;
+	bottom: -40px;
 	content: close-quote;
 	font-size: 8rem;
 	color: #BBB;
@@ -383,6 +388,7 @@ blockquote cite, blockquote .author {
 	display: block;
 	margin-top: 1rem;
 	text-align: right;
+	font-size: 1.2rem;
 	font-style: italic;
 }
 
@@ -403,30 +409,52 @@ a[title="anchor"]:hover {
 	background-color: inherit !important;
 }
 
-.collection h3:before, .collection h4:before, .collection h5:before {
+collection {
+	display: block;
+}
+
+.collection h3:before, .collection h4:before, .collection h5:before,
+collection h3:before, collection h4:before, collection h5:before {
 	content: "»";
 	margin-right: 5px;
 }
 
+#overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: none;
+	background-color: rgba(0,0,0,0.57);
+	z-index: 100;
+}
+
 #footnotePopup {
-	/*position: fixed;
-	top: 30%;
+	position: fixed;
+	top: 20%;
 	left: 50%;
-	margin-left: -25%;*/
-	position: absolute;
-	margin-top: -150px;
-	margin-left: -150px;
-	padding: 30px;
-	width: 320px;
-	height: 120px;
+	margin-left: -210px;
+	padding: 30px 2%;
+	width: 420px;
+	height: auto;
+	max-height: 70%;
 	overflow: auto;
+	color: #008cba;
+	font-size: 1rem;
+	line-height: 1.6;
 	background-color: white;
 	border: 2px solid #CCC;
-	z-index: 2;
+	z-index: 110;
 	transition: all 0.17s ease-in-out;
-	-webkit-transform: scale(0, 1);
+	-webkit-transform: translateY(-700px);
 	border-radius: 6px;
 	box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+#footnotePopup:first-letter {
+	font-size: 1.6rem;
+	margin-right: 5px;
+	line-height: 1;
+	color: rgb(4, 83, 166);
 }
 
 #footnotePopup.active {
@@ -435,6 +463,10 @@ a[title="anchor"]:hover {
 
 .footnote-item {
 	position: relative;
+}
+
+h6 {
+	font-weight: bold;
 }
 
 hr {

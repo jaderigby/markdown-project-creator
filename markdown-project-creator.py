@@ -1,9 +1,9 @@
 """
-2.7.0 Release:
-	2.7x incorporates Grunt for "build" and "watch" rather than native command-line arguments.
+Markdown Project Creator 1.0
+created by Jade C. Rigby
+contact@jaderigby.com
 
-2.7.1 Update:
-	- adds support for a markdown project workflow
+GNU Liscense
 """
 
 from Tkinter import *
@@ -30,7 +30,7 @@ def project_generator(window, projectDirectory):
 
 		load_node_modules_content = """open -a Terminal "`pwd`"
 cd """+ projectDirectory +"""
-dep=('grunt-contrib-watch' 'load-grunt-tasks' 'grunt-markdown')
+dep=('grunt-contrib-watch' 'load-grunt-tasks' 'grunt-markdown' 'grunt-regex-replace')
 
 for i in "${dep[@]}"
 do
@@ -38,6 +38,8 @@ do
 done
 
 rm -f """+ projectDirectory +"""/load-dependencies.sh
+
+echo "--Process Complete--"
 """
 
 		watch_files_content = """tell app "Terminal"

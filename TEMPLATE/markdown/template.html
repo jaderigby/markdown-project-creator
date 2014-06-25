@@ -69,15 +69,21 @@
     }
   });
 });
+      function replaceElement(fullRegex, openingRegex, replaceBefore, closingRegex, replaceAfter, inputString) {
+        var text;
+        var pat = fullRegex;
+        return text = inputString.replace(pat, function(match, contents, offset, s) {
+          var myObj = match.replace(openingRegex, replaceBefore);
+          myObj = myObj.replace(closingRegex, replaceAfter);
+          return myObj;
+        });
+      }
 
       //===== add custom tag elements
       var myString = $('#container').html();
-      myString = myString.replace(/\[author\]/g, '<span class="author">');
-      myString = myString.replace(/\[\/author\]/g, '</span>');
-      myString = myString.replace(/\[center\]/g, '<span class="center">');
-      myString = myString.replace(/\[\/center\]/g, '</span>');
-      myString = myString.replace(/<p>\[collection\]<\/p>/g, '<span class="collection">');
-      myString = myString.replace(/<p>\[\/collection\]<\/p>/g, '</span>');
+      myString = replaceElement(/\[author\][^`].*\[\/author\]/g, /\[author\]/, '<cite>', /\[\/author\]/, '</cite>', myString);
+      myString = replaceElement(/\[center\][^`].*\[\/center\]/g, /\[center\]/, '<span class="center">', /\[\/center\]/, '</span>', myString);
+      myString = replaceElement(/\[collection\][^`].*\[\/collection\]/g, /\[collection\]/, '<span class="collection">', /\[\/collection\]/, '</span>', myString);
       //===== Footnote Support
       var footnoteRef = /\[\^[1-9]*\]/g;
       var myCount = 0;
