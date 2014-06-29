@@ -23,36 +23,8 @@ module.exports = function(grunt) {
 					}
 				],
 				options: {
-					template: 'template2.html'
+					template: 'template.html'
 				}
-			}
-		},
-
-		replace: {
-			process_tags: {
-				src: ['<%= config.app %>/html/*.html'],
-				overwrite: true,
-				replacements: [
-					{
-						from: /\[center\]/g,
-						to: '<span class="center">'
-					},{
-						from: /\[\/center\]/g,
-						to: '</span>'
-					},{
-						from: /\[author\]/g,
-						to: '<cite>'
-					},{
-						from: /\[\/author\]/g,
-						to: '</cite>'
-					},{
-						from: /<p\>\[collection\]<\/p\>/g,
-						to: '<div class="collection">'
-					},{
-						from: /<p\>\[\/collection\]<\/p\>/g,
-						to: '</div>'
-					}
-				]
 			}
 		},
 
@@ -60,9 +32,9 @@ module.exports = function(grunt) {
 			options: {
 				livereload: true
 			},
-			files: {
+			markdown: {
 				files: '<%= config.app %>/markdown/**/*.markdown',
-				tasks: ['markdown','replace'],
+				tasks: 'markdown',
 				options: {
 					livereload: true
 				}

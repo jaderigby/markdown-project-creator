@@ -193,78 +193,6 @@ body.minimal .center img {
 	background-color: #e9e9e9;
 }
 
-/*============= theBlues =============*/
-body.theBlues {
-	background-color: slategrey;
-}
-
-body.theBlues #container {
-	border-color: #CDCDCD;
-	background-color: #EFEFEF;
-}
-
-body.theBlues nav {
-	background-color: #B9C9D3;
-}
-
-body.theBlues nav a {
-	color: #006B8F;
-}
-
-body.theBlues nav a.active {
-	color: white;
-	background-color: #4C7596;
-}
-
-body.theBlues nav a.active:hover {
-	color: white;
-}
-
-body.theBlues nav a:hover {
-	color: black;
-	background-color: #8EA9BE; /* 839FB6, 8EA9BE */
-}
-
-body.theBlues h2 {
-	margin-bottom: 1.5rem;
-	border-bottom-color: #9E9E9E;
-}
-
-body.theBlues blockquote {
-	background-color: #D8D8D8;
-}
-
-body.theBlues blockquote p {
-	color: #4E4E4E;
-}
-
-body.theBlues blockquote:before, 
-body.theBlues blockquote:after {
-	color: #ADADAD;
-}
-
-body.theBlues a[title="anchor"]:hover {
-	color: #0A487A; /* 0C4C80, 0A487A */
-	background-color: inherit !important;
-}
-
-body.theBlues #footnotePopup {
-	background-color: white;
-	border-color: #626262;
-}
-
-body.theBlues hr {
-	border-color: #9E9E9E;
-}
-
-body.theBlues .center img {
-	background-color: #C3CED5; /* C2CDD4, C3CED5 */
-}
-
-body.theBlues h1, body.theBlues h2, body.theBlues, h3, body.theBlues h4, body.theBlues h5, body.theBlues h6 {
-	color: #204B6D; /* 224B6D, 204B6D */
-}
-
 /*==================== end of colors */
 
 body {
@@ -362,172 +290,22 @@ nav a:hover {
 	-webkit-transform: scale(1, 1);
 }
 
-#themeSelection {
-	margin-bottom: -4px;
-}
-
-#themeSelection button {
-	margin-bottom: 4px;
-}
-
 #settings h4 {
 	color: #666;
 	border-bottom: 1px solid #666;
 }
 
-#settings h6 {
-	padding-bottom: 5px;
-	border-bottom: 1px solid #B9B9B9;
-}
-
-#settings h6 #currentNav {
-	font-weight: normal;
-	font-size: 0.9em;
-}
-
-#settings .section-title {
-	margin-top: 30px;
-	padding-bottom: 5px;
-	border-bottom: 1px solid #B9B9B9;
-}
-
-#settings .block {
-	margin-top: -2px;
-	padding-top: 10px;
-	padding-bottom: 1px;
-	color: rgb(244, 244, 244);
-	background-color: #959595;
-}
-
-#settings ol {
-	margin-left: 35px;
-}
-
-#settings ol li {
-	position: relative;
-}
-
-.mpc-close-btn { 
-	display: inline-block;
-	margin-bottom: -2px;
-	font-size: 1.5rem;
-	line-height: 0;
-	cursor: pointer;
-	background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20%20%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20%20%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%20%20%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%20%20xmlns%3Asodipodi%3D%22http%3A%2F%2Fsodipodi.sourceforge.net%2FDTD%2Fsodipodi-0.dtd%22%20%20%20xmlns%3Ainkscape%3D%22http%3A%2F%2Fwww.inkscape.org%2Fnamespaces%2Finkscape%22%20%20%20width%3D%2215%22%20%20%20height%3D%2215%22%20%20%20id%3D%22svg3908%22%20%20%20version%3D%221.1%22%20%20%20inkscape%3Aversion%3D%220.48.2%20r9819%22%20%20%20sodipodi%3Adocname%3D%22cancel-btn-red.svg%22%3E%20%20%3Cdefs%20%20%20%20%20id%3D%22defs3910%22%20%2F%3E%20%20%3Csodipodi%3Anamedview%20%20%20%20%20id%3D%22base%22%20%20%20%20%20pagecolor%3D%22%23ffffff%22%20%20%20%20%20bordercolor%3D%22%23666666%22%20%20%20%20%20borderopacity%3D%221.0%22%20%20%20%20%20inkscape%3Apageopacity%3D%220.0%22%20%20%20%20%20inkscape%3Apageshadow%3D%222%22%20%20%20%20%20inkscape%3Azoom%3D%2231.392433%22%20%20%20%20%20inkscape%3Acx%3D%228%22%20%20%20%20%20inkscape%3Acy%3D%228%22%20%20%20%20%20inkscape%3Acurrent-layer%3D%22layer1%22%20%20%20%20%20showgrid%3D%22true%22%20%20%20%20%20inkscape%3Agrid-bbox%3D%22true%22%20%20%20%20%20inkscape%3Adocument-units%3D%22px%22%20%20%20%20%20inkscape%3Awindow-width%3D%221328%22%20%20%20%20%20inkscape%3Awindow-height%3D%22855%22%20%20%20%20%20inkscape%3Awindow-x%3D%2259%22%20%20%20%20%20inkscape%3Awindow-y%3D%220%22%20%20%20%20%20inkscape%3Awindow-maximized%3D%220%22%20%2F%3E%20%20%3Cmetadata%20%20%20%20%20id%3D%22metadata3913%22%3E%20%20%20%20%3Crdf%3ARDF%3E%20%20%20%20%20%20%3Ccc%3AWork%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage%2Fsvg%2Bxml%3C%2Fdc%3Aformat%3E%20%20%20%20%20%20%20%20%3Cdc%3Atype%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Fdcmitype%2FStillImage%22%20%2F%3E%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C%2Fdc%3Atitle%3E%20%20%20%20%20%20%3C%2Fcc%3AWork%3E%20%20%20%20%3C%2Frdf%3ARDF%3E%20%20%3C%2Fmetadata%3E%20%20%3Cg%20%20%20%20%20id%3D%22layer1%22%20%20%20%20%20inkscape%3Alabel%3D%22Layer%201%22%20%20%20%20%20inkscape%3Agroupmode%3D%22layer%22%20%20%20%20%20transform%3D%22translate(0%2C-1)%22%3E%20%20%20%20%3Cpath%20%20%20%20%20%20%20id%3D%22path3923%22%20%20%20%20%20%20%20d%3D%22m%207.5277951%2C1.0379475%20c%20-4.1394528%2C0%20-7.49476553%2C3.3553127%20-7.49476553%2C7.4947655%200%2C4.139453%203.35531273%2C7.494766%207.49476553%2C7.494766%204.1394529%2C0%207.4947659%2C-3.355313%207.4947659%2C-7.494766%200%2C-4.1394528%20-3.355313%2C-7.4947655%20-7.4947659%2C-7.4947655%20z%20M%2011.275177%2C6.11003%208.8524949%2C8.532713%2011.275177%2C10.955395%20v%201.3247%20H%209.9504775%20L%207.5277951%2C9.8574124%205.105112%2C12.280095%20H%203.7804123%20v%20-1.3247%20L%206.2030952%2C8.532713%203.7804123%2C6.11003%20V%204.7853302%20H%205.105112%20L%207.5277951%2C7.2080131%209.9504775%2C4.7853302%20H%2011.275177%20V%206.11003%20z%22%20%20%20%20%20%20%20inkscape%3Aconnector-curvature%3D%220%22%20%20%20%20%20%20%20style%3D%22fill%3A%23800000%22%20%2F%3E%20%20%3C%2Fg%3E%3C%2Fsvg%3E'); 
-	background-repeat: no-repeat; 
-	width: 15px;
-	height: 15px;
-}
-
-.modify-options {
-	position: absolute;
-	display: none;
-	margin-left: 170px;
-	margin-top: -25px;
-	color: #800000;
-}
-
-#settings li:hover .modify-options {
-	display: block;
-}
-
-#settings span.edit {
-	cursor: pointer;
-}
-
-#settings span.edit:hover {
-	text-decoration: underline;
-}
-
-#cancelEdit {
-	display: inline-block;
-	margin-left: 10px;
-}
-
-#settings input[type="text"] {
-	color: white;
-	background-color: #919191;
-	border: none;
-}
-
-.menu {
-	display: block;
-	margin: 0 0 2px;
-	padding: 10px 10px;
-	font-weight: bold;
-	background-color: #D1D1D1;
-}
-
-.menu:hover {
-	background-color: #BBB;
-	cursor: pointer;
-}
-
-#settings input[type="text"]:focus {
-	background-color: #686868;
-	box-shadow: none;
-	border: none; /* #007095 */
-}
-
-#settings button.submit {
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-	background-color: #335878;
-	outline: none;
-}
-
-#settings button.submit:hover {
-	background-color: #1C3245; /* 1E374C, 1A2C3B, 1C3245 */
-}
-
-.submit {
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-	background-color: #335878;
-	outline: none;
-}
-
-.submit:hover {
-	background-color: #1C3245;
-}
-
-#confirmMessage {
-	margin-left: 10px;
-	opacity: 0;
-	transition: opacity 1s ease-in-out;
-}
-
-#confirmMessage.active {
-	opacity: 1;
-	transition: opacity 0.23s ease-in-out;
-}
-
 button.btn-selection {
+	/*padding: ;*/
 	margin: 0;
-	padding: 0.5rem 0 0.5625rem;
-	width: 115px;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5625rem;
 	color: #CBCBCB;
 	background-color: #4F4F4F;
 }
 
 button.btn-selection:focus {
 	outline: none;
-}
-
-#settings ::-webkit-input-placeholder {
-   color: #C0C0C0;
-}
-
-#settings :-moz-placeholder { /* Firefox 18- */
-   color: #C0C0C0;  
-}
-
-#settings ::-moz-placeholder {  /* Firefox 19+ */
-   color: #C0C0C0;  
-}
-
-#settings :-ms-input-placeholder {  
-   color: #C0C0C0;  
 }
 
 button.btn-selection:hover {
@@ -650,7 +428,7 @@ collection h3:before, collection h4:before, collection h5:before {
 	z-index: 100;
 }
 
-.modal {
+#footnotePopup {
 	position: fixed;
 	top: 20%;
 	left: 50%;
@@ -679,7 +457,7 @@ collection h3:before, collection h4:before, collection h5:before {
 	color: rgb(4, 83, 166);
 }
 
-.modal.active {
+#footnotePopup.active {
 	-webkit-transform: scale(1, 1);
 }
 
@@ -701,14 +479,14 @@ a#backToTop {
 	z-index: 2;
 	text-decoration: none;
 	border-radius: 8px 8px 0 0;
-	opacity: 0.35;
+	opacity: 0.25;
 	transition: all 0.17s ease-in-out;
 	-webkit-transform: translateY(20px);
 }
 
 a#backToTop:hover {
 	background-color: black !important;
-	opacity: 0.8;
+	opacity: 0.7;
 	-webkit-transform: translateY(0);
 }
 

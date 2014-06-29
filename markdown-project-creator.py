@@ -30,7 +30,7 @@ def project_generator(window, projectDirectory):
 
 		load_node_modules_content = """open -a Terminal "`pwd`"
 cd """+ projectDirectory +"""
-dep=('grunt-contrib-watch' 'load-grunt-tasks' 'grunt-markdown' 'grunt-regex-replace')
+dep=('grunt-contrib-watch' 'load-grunt-tasks' 'grunt-markdown' 'grunt-text-replace')
 
 for i in "${dep[@]}"
 do
