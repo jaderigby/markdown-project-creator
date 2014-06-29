@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 					}
 				],
 				options: {
-					template: 'template2.html'
+					template: 'template.html'
 				}
 			}
 		},
@@ -51,7 +51,14 @@ module.exports = function(grunt) {
 					},{
 						from: /<p\>\[\/collection\]<\/p\>/g,
 						to: '</div>'
+					},{
+						from: / -- /g,
+						to: ' &mdash; '
+					},{
+						from: / - /g,
+						to: ' &ndash; '
 					}
+
 				]
 			}
 		},

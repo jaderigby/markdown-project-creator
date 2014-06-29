@@ -631,8 +631,8 @@ a[title="anchor"]:hover {
 	background-color: inherit !important;
 }
 
-collection {
-	display: block;
+div.collection {
+	padding: 15px;
 }
 
 .collection h3:before, .collection h4:before, .collection h5:before,

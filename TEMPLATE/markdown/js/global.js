@@ -196,33 +196,62 @@ $('#currentNav').html(thisNav);
         $('#navUrl').val("");
       });
 
+function footnoteRefReplace(myString) {
+  var myItem = myString.replace(/\[\^[1-9]*\]/, function(match, contents, offset, s) {
+    var myNum = match.replace(/[\^\[\]]/g, '');
+    var newString = ' <a class="footnote-item toggle" data-target="#footnotePopup" href="#fn-' + myNum + '">[' + myNum + ']</a>';
+    return newString;
+  });
+  return myItem;
+}
+
+function footnoteReplace(myString) {
+  var myItem = myString.replace(/\[[1-9]*\]\:/, function(match, contents, offset, s) {
+    var myItem = match.replace(/[\^\[\]\:]/g, '');
+    var newString = '<div id="fn-' + myItem + '" style="display: none;">' + myItem + '. ';
+    return newString;
+  });
+  return myItem;
+}
+
 var footnoteRefPat = /\[\^[1-9]*\]/g;
 var footnotePat = /\[[1-9]*\]:/g;
-var myRefCount = 0;
-var myCount = 0;
-$('p').each(function() {
+$('li').each(function() {
+  // replace footnote reference with reference link
   if ($(this).text().match(footnoteRefPat)) {
     var myString = $(this).html();
-    var myString = myString.replace(footnoteRefPat, function() {
-      myRefCount += 1;
-      var myObj = ' <a class="footnote-item toggle" data-target="#footnotePopup" href="#fn-' + myRefCount + '">[' + myRefCount + ']</a>';
-      return myObj;
-    });
-    $(this).html(myString);
-  };
+    var newString = footnoteRefReplace(myString);
+    $(this).html(newString);
+  }
+});
+$('p').each(function() {
+  // replace footnote reference with reference link
+  if ($(this).text().match(footnoteRefPat)) {
+    var myString = $(this).html();
+    var newString = footnoteRefReplace(myString);
+    $(this).html(newString);
+  }
+  // replace footnotes with hidden footnote blocks
   if ($(this).text().match(footnotePat)) {
     var myString = $(this).html();
-    myString = myString.replace(footnotePat, function() {
-      myCount += 1;
-      var myObj = '<div id="fn-' + myCount + '" style="display: none;">' + myCount + '. ';
-      return myObj;
-    });
-    $(this).replaceWith(myString + '</div>');
+    var newString = footnoteReplace(myString);
+    $(this).replaceWith(newString + '</div>');
   }
 });
 
-      $('#container').delegate('.footnote-item', 'click', function() {
+// $('li').each(function() {
+//   if ($(this).text().match(footnoteRefPat)) {
+//     var myString = $(this).html();
+//     var newString = footnoteRefReplace(myString);
+//     $(this).html(newString);
+//   };
+// });
+
+
+      $('#container').delegate('.footnote-item', 'click', function(e) {
+        e.preventDefault();
         var myFooty = $(this).attr('href');
+        $('#footnotePopup').html('');
         $('#footnotePopup').html($(myFooty).html());
         $('#overlay').css('display', 'block');
       });
