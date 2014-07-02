@@ -310,6 +310,7 @@ body.heroic #container {
 }
 
 body.heroic #settings+h6 {
+	color: #E69A30;
 	background-color: #454545;
 }
 
@@ -329,17 +330,17 @@ body.heroic nav {
 }
 
 body.heroic nav a {
-	color: #FFB348;
+	color: #FAAE44;
 }
 
 body.heroic nav a.active {
 	color: white;
-	background-color: #C59328; /* C59F28, C59328 */
+	background-color: #DFA134; /* C59F28, C59328 */
 }
 
 body.heroic nav a.active:hover {
 	color: white;
-	background-color: #D49F2C;
+	background-color: #C58D2A;
 }
 
 body.heroic nav a:hover {
@@ -388,7 +389,7 @@ body.heroic .center img {
 }
 
 body.heroic h1, body.heroic h2, body.heroic h3, body.heroic h4, body.heroic h5, body.heroic h6 {
-	color: #004365; /* 253D5E, 005580 */
+	color: #004364; /* 253D5E, 005580, 004365, 004364 */
 }
 
 /*==================== end of colors */
