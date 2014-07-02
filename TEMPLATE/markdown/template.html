@@ -43,6 +43,7 @@
             <button id="minimal" class="btn-selection">Minimal</button>
             <br>
             <button id="theBlues" class="btn-selection">The Blues</button>
+            <button id="heroic" class="btn-selection">Heroic</button>
           </div>
           <div>
             <h6 class="section-title">Navigation: <span id="currentNav"></span></h6>
@@ -53,9 +54,16 @@
           </div>
           <div>
             <div class="menu collapsible trigger">Modify</div>
-            <div class="navlist collapsible drawer block"></div>
-            <div id="importNav" class="menu">Import</div>
-            <div id="exportNav" class="menu">Export</div>
+            <div class="nav-list collapsible drawer block"></div>
+            <div id="importExport">
+              <div id="importNav" class="menu">Import</div>
+              <div id="exportNav" class="menu">Export</div>
+              <div class="reset"></div>
+            </div>
+            <div class="menu collapsible trigger">Menu List</div>
+            <div class="menu-list collapsible drawer block">
+              <ol></ol>
+            </div>
           </div>
 				</div>
 				<%=content%>

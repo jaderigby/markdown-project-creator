@@ -146,7 +146,7 @@ $('#currentNav').html(thisNav);
               navList = navList + navListItem;
             }
             $(this).replaceWith('<nav id="main">' + navString + '</nav>');
-            $('.navlist').html('<ol>' + navList + '</ol>');
+            $('.nav-list').html('<ol>' + navList + '</ol>');
           }
         });
       }
@@ -162,7 +162,7 @@ $('#currentNav').html(thisNav);
           navList = navList + navListItem;
         }
         $('nav#main').replaceWith('<nav id="main">' + navString + '</nav>');
-        $('.navlist').html('<ol>' + navList + '</ol>');
+        $('.nav-list').html('<ol>' + navList + '</ol>');
       }
 
       loadNav();
@@ -268,15 +268,16 @@ $('p').each(function() {
         $('.trigger-icon', this).toggleClass('active');
       });
 
-      $('#settings').delegate('.remove', 'click', function() {
-        // alert("This item is: " $(this));
+      $('#settings').delegate('.nav-list .remove', 'click', function() {
         var iter = $(this).parents('li').data('item');
-        alert("Removing Item "+iter+": " + navigation[iter].name);
-        navigation.splice(iter, 1);
-        storeNav();
-        $(this).parents('li').remove();
-        var navItem = $("nav a[data-item='" + iter +"']");
-        $(navItem).remove();
+        var removeItem = confirm('Remove navigation item?');
+        if (removeItem === true) {
+          navigation.splice(iter, 1);
+          storeNav();
+          $(this).parents('li').remove();
+          var navItem = $("nav a[data-item='" + iter +"']");
+          $(navItem).remove();
+        }
       });
 
       $('#settings').delegate('.edit', 'click', function() {
@@ -313,7 +314,7 @@ $('p').each(function() {
       })
 
       $('#exportNav').click(function() {
-        var navString = JSON.stringify(navigation);
+        var navString = JSON.stringify(fullNavigation);
         $('#exportPortal').html(navString);
         $('#exportPopup').addClass('active');
         $('#overlay').css('display', 'block');
@@ -333,4 +334,34 @@ $('p').each(function() {
       $('body').delegate('#overlay', 'click', function() {
         $('#overlay').css('display', 'none');
         $('.modal').removeClass('active');
+      });
+
+
+
+
+
+
+      function listObjects(myObject) {
+        var tempList = [];
+        Object.keys(fullNavigation).forEach(function(key) {
+            tempList.push(key);
+        });
+        return tempList;
+      }
+
+      var menuList = listObjects(fullNavigation);
+
+      $(menuList).each(function(i) {
+        var newItem = '<li class="item-click-default" data-label="' + this + '">' + this + '<span class="modify-options"><span class="remove mpc-close-btn"></span></span></li>';
+        $('.menu-list ol').append(newItem);
+      });
+
+      $('#settings').delegate('.menu-list .remove', 'click', function() {
+        var myItem = $(this).parents('li').data('label');
+        var removeMenu = confirm('You are about to remove the following Menu:\n"' + myItem + '"\n\nAre you sure?');
+        if (removeMenu === true) {
+          $(this).parents('li').remove();
+          delete fullNavigation[myItem];
+          localStorage.mpcNavigation = JSON.stringify(fullNavigation);
+        }
       });
