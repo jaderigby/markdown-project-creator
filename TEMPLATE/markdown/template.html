@@ -18,12 +18,13 @@
     <div id="overlay" class="item-click-default"></div>
     <div id="footnotePopup" class="modal item-click-default"></div>
     <div id="importPopup" class="modal item-click-default">
-      <h3>Import</h3>
+      <h3>Import <span class="sub">(To import navigation, paste "Export" text below)</span></h3>
       <textarea name="importNav" id="importString" cols="30" rows="10"> </textarea>
-      <button id="importNavConfirm" class="submit">Confirm</button>
+      <button id="importNavConfirm" class="submit">Import</button>
     </div>
     <div id="exportPopup" class="modal item-click-default">
-      <h3>Export</h3>
+      <h3>Export <span class="sub">(To Export your navigation to other browsers, highlight and copy the text below)</span></h3>
+        <button id="highlightExportNav" class="submit">Highlight All</button>
       <div id="exportPortal"></div>
     </div>
     <div id="editPopup" class="modal item-click-default" data-item>
@@ -37,6 +38,7 @@
       <div id="selector" class="mark-settings-trigger toggle item-click-default" data-target="#settings"></div>
 			<div class="medium-12 column">
 				<div id="settings" class="item-click-default">
+        <h6>Themes</h6>
 					<div id="themeSelection">
             <button id="dark" class="btn-selection">Dark</button>
             <button id="light" class="btn-selection">Light</button>
@@ -47,17 +49,19 @@
           </div>
           <div>
             <h6 class="section-title">Navigation: <span id="currentNav"></span></h6>
-            <input type="text" id="navLabel" placeholder="Label">
+            <input type="text" id="navLabel" placeholder="Title">
             <input type="text" id="navUrl" placeholder="URL">
-            <button id="addNewNav" class="submit">Add</button>
-            <span id="confirmMessage">Saved . . . </span>
+            <div id="saveNav" class="cf">
+              <button id="addNewNav" class="submit">Save</button>
+              <span id="confirmMessage">Saved!</span>
+            </div>
           </div>
           <div>
             <div class="menu collapsible trigger">Modify</div>
             <div class="nav-list collapsible drawer block"></div>
             <div id="importExport">
-              <div id="importNav" class="menu">Import</div>
               <div id="exportNav" class="menu">Export</div>
+              <div id="importNav" class="menu">Import</div>
               <div class="reset"></div>
             </div>
             <div class="menu collapsible trigger">Menu List</div>
