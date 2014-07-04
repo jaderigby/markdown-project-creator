@@ -550,15 +550,15 @@ nav a:hover {
 }
 
 #settings .block {
-	margin-top: -2px;
 	padding-top: 10px;
-	padding-bottom: 1px;
+	padding-bottom: 10px;
 	color: rgb(244, 244, 244);
 	background-color: #959595;
 }
 
 #settings ol {
 	margin-left: 35px;
+	margin-bottom: 0;
 }
 
 #settings ol li {
@@ -612,9 +612,13 @@ nav a:hover {
 	border: none;
 }
 
+.menu:first-child {
+	margin-top: 0;
+}
+
 .menu {
 	display: block;
-	margin: 0 0 2px;
+	margin: 2px 0 0;
 	padding: 10px 10px;
 	font-weight: bold;
 	background-color: #D1D1D1;
@@ -930,13 +934,17 @@ a:hover {
   *zoom: 1;
 }
 
+#saveNav button {
+	margin-bottom: 1rem;
+}
+
 #importExport {
 	margin-bottom: 40px;
 }
 
 #importExport div {
 	float: left;
-	margin-bottom: 2px;
+	margin-top: 2px;
 	width: 49.72%;
 }
 

@@ -3,25 +3,36 @@ Markdown Project Creator
 
 **Note:** Requires Mac OSX and Python 2.7
 
-This offers a gui setup client along with some styling and Foundation 4 support to Markdown projects.  Setup requires the following:
+This offers a gui setup interface along with some styling and Foundation 4 support to Markdown projects.  Setup requires the following:
 
-- [Grunt](http://gruntjs.com/getting-started)
+- [Python 2.7](https://www.python.org/download/releases/2.7.8/)
+- Python Launcher (should come with Python 2.7.8 download above.  Make sure to associate ".py" files with the Python Launcher, ie using the "Get Info" window.)
 - [Node.js](http://nodejs.org/)
+- [Grunt CLI](http://gruntjs.com/getting-started)
 
-Once Grunt and Node.js are set up, download the package and run "markdown-project-creator.py".  This will require python, as well as the Python Launcher Utility.  If these are installed, then the client is ready to be used.  Follow the steps below to start your project:
+### Installation and Setup
 
-1. Enter the filepath into the respective field.  Example: "/Users/my-users-name/Documents/new-markdown-project"
-2. Click "Create Project".  This will create a folder with the necessary dependencies included, in the destination which you stipulated in Step 1.
-3. Click on "Download Dependencies".  This will open a new terminal window, and then run through downloading all of the needed npm packages in the background.  You will notice these processes running in the parent window.  Monitor this terminal window for completeness.  Once the process is complete, you may go to Step 4.
-4. Click "Watch Files" to begin watching your files.  There are several folders and files within the project folder, but the one that you are concerned with is "`__docs__`".  Within `__docs__`, you will find a folder called "markdown".  Here, is where you will add your Markdown files. (**Note:** You can create subfolders as needed in order to organize your project markdown files; just make note that when your files are interpreted to the html folder, they will be flattened to the "html" folder, so make sure that all file names are unique.) Use the "sample.markdown" file as an example of how to create your own Markdown files.
+To install Node.js, go to the link above and click the "Install" button. This will download the Node.js installer for you.  Once it is downloaded, run the installer.  After Node.js is installed, run the following command in a terminal to install the Grunt CLI: `npm install -g grunt-cli`.
 
-5. To start interpreting your markdown files to html, locate and double-click the "_watch-files.py" file (double-click only works with the python launcher installed.)  This will launch the terminal and execute the "grunt watch" command.  Once the "watch" command has been executed any files saved in your markdown folder will be interpreted to an html file, and passed into the "html" project folder.
+You may need to run this as sudo, ie: `sudo npm install -g grunt-cli`.  You will be prompted to enter your password.  Enter your password and hit "enter".
 
-	To view your files, open the desired html file in a web browser (currently, Chrome is the only browser succesfully tested against.  But firefox, safari and ie 10 - 11 should work fine, too.)
+**Note:** The Mac OSX terminal can be found under "Applications/Utilities/Terminal" Don't be intimidated: just paste the above command in and hit "enter".
+
+### Start a Project
+Once Node.js and the Grunt CLI are installed, download the package and double-click the "markdown-project-creator.py" file (this will only launch, if you have the Python Launcher installed.)  This will require python, as well as the Python Launcher Utility.  If these are installed, then the client is ready to be used.  Follow the steps below to start your project:
+
+1. Enter the filepath into the respective field.  This should be an absolute path.  Example: "/Users/my-users-name/Documents/new-markdown-project"  **Note:** Make sure your project folder name does not contain any uppercase letters or any spaces or special characters other than hyphens and underscores.
+2. Click "Create Project".  This will create a folder with the necessary subfolders and files included, in the destination entered in Step 1.
+3. Click on "Download Dependencies".  This will open a new terminal window, and then run through downloading all of the needed npm packages in the background.  You will notice these processes running in the parent window.  Monitor this terminal window for completeness.  Once the window says "--Process Complete--" you may go to Step 4.
+4. Click "Watch Files" to begin watching your files.  Or, go to your new project folder, and locate the file called "_watch-files.py", and double-click it (uses the Python Launcher.)  
+
+5. Your project folder will contain several folders and files, but the one that you are concerned with is called `__docs__`. Within this folder is another folder called `markdown`. The markdown folder is where you will create all of your files.  You may add subdfolders, as well, to keep yourself organized, but take note that all html files will be generated within the 	`html` folder _without_ any subfolders.  So be sure that all of your filenames are unique.  Another folder that you can use is the `_media` folder contained within the `html` folder.  Here, is where you can add videos and images to your markdown files.
+
+6.  When you create a new file, give it the ".markdown" suffix, such as "my-brand-new-file.markdown".  When the file is saved, the "watch files" interpreter will automatically generate the html file for you.  These files can be located within the `html` folder, ie "__docs__/html".
+
+	To view your files, open the desired html file in a current web browser, such as Firefox Chrome or IE11.
 
 	Any media that you would like to add to your documents can go in the "_media" folder under either "images" or "videos".  Then, you can reference them in your markdown files using "_media/images/myImage.jpg", etc.
-
-<!-- While "Watch Files" is running, anything you save will create/edit the equivalent html file.  When you are finished, you can open the html file in a web browser and review the results.  Any images or videos that you would like to add locally can go in the "media" folder. -->
 
 ##### In addition to standard markdown features, the "Markdown Project Creator" also supports the following:
 
@@ -51,3 +62,14 @@ Once Grunt and Node.js are set up, download the package and run "markdown-projec
 	[Epilogue](#epilogue "anchor")
 	</nav>
 	```
+
+### Dynamic Menus
+A new feature has been added to the Markdown Project Creator.  It gives you the ability to generate dynamic navigation menus.  These are menus that are created once and then included on every page containing the tag `[navigation]`.  To create a new dynamic menu, add a tag, like `[navigation:new-menu]` and the first time you open the html version of the file, a new menu will be generated for you.  Then, to add it to another page, simply include the `[navigation:new-menu]` in your new page.  To add or edit the menu, you can do this in your web browser, using the button in the top right of your page. 
+
+##### A Couple things to Note:
+
+1. Dynamic menus store your information in Local Storage, which is specific to the browser that you create/edit in.  Use the "Import" and "Export" features to move your menu to another browser or computer.
+2. In the future, dynamic menus may utilize some service, such as Dropbox, to populate other browsers for you in the background.  But for now, Local Storage is it!
+3. One thing that you can do, is keep a copy of your current menu (copied from the "Export" text) in the form of a simple text file. Then, you can import it into another browser, and even on a new machine, by pasting the text into the "Import" box, and pressing "Import".
+
+
