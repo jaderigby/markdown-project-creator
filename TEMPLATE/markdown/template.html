@@ -33,6 +33,22 @@
       <input id="editUrl" type="text">
       <button id="saveEdit" class="submit">Change</button> <a id="cancelEdit" href="#">Cancel</a>
     </div>
+    <div id="importPagPopup" class="modal item-click-default">
+      <h3>Import <span class="sub">(To import pagination, paste "Export" text below)</span></h3>
+      <textarea name="importPag" id="importString" cols="30" rows="10"> </textarea>
+      <button id="importPagConfirm" class="submit">Import</button>
+    </div>
+    <div id="exportPagPopup" class="modal item-click-default">
+      <h3>Export <span class="sub">(To Export your navigation to other browsers, highlight and copy the text below)</span></h3>
+        <button id="highlightExportPag" class="submit">Highlight All</button>
+      <div id="exportPagPortal"></div>
+    </div>
+    <div id="editPagPopup" class="modal item-click-default" data-item>
+      <h3>Edit</h3>
+      <input id="editPagName" type="text">
+      <input id="editPagUrl" type="text">
+      <button id="savePagEdit" class="submit">Change</button> <a id="cancelPagEdit" href="#">Cancel</a>
+    </div>
 		<div id="container" class="row">
       <a href="#container" id="backToTop" title="anchor">&#8679;</a>
       <div id="selector" class="mark-settings-trigger toggle item-click-default" data-target="#settings"></div>
@@ -47,29 +63,47 @@
             <button id="theBlues" class="btn-selection">The Blues</button>
             <button id="heroic" class="btn-selection">Heroic</button>
           </div>
-          <div>
-            <h6 class="section-title">Navigation: <span id="currentNav"></span></h6>
-            <input type="text" id="navLabel" placeholder="Title">
-            <input type="text" id="navUrl" placeholder="URL">
-            <div id="saveNav" class="cf">
-              <button id="addNewNav" class="submit">Save</button>
+            <h6 class="section-title toggler" data-target="#navigationDrawer">Navigation: <span id="currentNav"></span></h6>
+            <div id="navigationDrawer" class="drawer">
+              <input type="text" id="navLabel" placeholder="Title">
+              <input type="text" id="navUrl" placeholder="URL">
+              <div class="cf saveItem">
+                <button id="addNewNav" class="submit">Save</button>
+                <span id="confirmMessage">Saved!</span>
+              </div>
+              <div class="settings-section">
+                <div class="menu collapsible trigger">Modify</div>
+                <div class="nav-list collapsible drawer block"></div>
+                <div id="importExport">
+                  <div id="exportNav" class="menu">Export</div>
+                  <div id="importNav" class="menu">Import</div>
+                  <div class="reset"></div>
+                </div>
+                <div class="menu collapsible trigger">Menu List</div>
+                <div class="menu-list collapsible drawer block">
+                  <ol></ol>
+                </div>
+              </div><!-- .settings-section -->
+            </div><!-- #navigationDrawer -->
+          <h6 class="toggler" data-target="#paginationDrawer">Pagination: <span id="currentPagination"></span></h6>
+          <div id="paginationDrawer" class="drawer">
+            <input type="text" id="pageLabel" placeholder="Title">
+            <input type="text" id="pageUrl" placeholder="URL">
+            <div class="cf saveItem">
+              <button id="addNewPage" class="submit">Save</button>
               <span id="confirmMessage">Saved!</span>
             </div>
-          </div>
-          <div>
-            <div class="menu collapsible trigger">Modify</div>
-            <div class="nav-list collapsible drawer block"></div>
-            <div id="importExport">
-              <div id="exportNav" class="menu">Export</div>
-              <div id="importNav" class="menu">Import</div>
-              <div class="reset"></div>
+            <div>
+              <div class="menu collapsible trigger">Modify</div>
+              <div class="pag-list collapsible drawer block"></div>
+              <div id="importExport">
+                <div id="exportPag" class="menu">Export</div>
+                <div id="importPag" class="menu">Import</div>
+                <div class="reset"></div>
+              </div>
             </div>
-            <div class="menu collapsible trigger">Menu List</div>
-            <div class="menu-list collapsible drawer block">
-              <ol></ol>
-            </div>
-          </div>
-				</div>
+          </div><!-- #paginationDrawer -->
+				</div><!-- #settings -->
 				<%=content%>
 			</div>
 		</div>
