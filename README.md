@@ -64,7 +64,7 @@ Once Node.js and the Grunt CLI are installed, download the package and double-cl
 	```
 
 ### Dynamic Menus
-A new feature has been added to the Markdown Project Creator.  It gives you the ability to generate dynamic navigation menus.  These are menus that are created once and then included on every page containing the tag `[navigation]`.  To create a new dynamic menu, add a tag, like `[navigation:new-menu]` and the first time you open the html version of the file, a new menu will be generated for you.  Then, to add it to another page, simply include the `[navigation:new-menu]` in your new page.  To add or edit the menu, you can do this in your web browser, using the button in the top right of your page. 
+A new feature has been added to the Markdown Project Creator.  It gives you the ability to generate dynamic navigation menus.  These are menus that are created once and then included on every page containing the tag `[navigation]`.  To create a new dynamic menu, add a tag, like `[navigation:new-menu]` and the first time you open the html version of the file, a new menu will be generated for you.  In our example above, it would be called "new-menu".  Then, to add it to another page, simply include the `[navigation:new-menu]` in your new page.  To add or edit the menu, you can do this in your web browser, using the button in the top right of any html page. 
 
 ##### A Couple things to Note:
 
