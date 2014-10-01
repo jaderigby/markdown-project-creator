@@ -418,6 +418,7 @@ $('#settings').delegate('#addNewPage', 'click', function() {
   var newObj = {};
   newObj['name'] = newItem;
   newObj['url'] = newUrl;
+  console.log("my test pagination = " + pagination);
   pagination.push(newObj);
   storePagination();
   confirmOk();
