@@ -98,6 +98,11 @@ var currentPagePagination = function() {
     }
     if (myPagination === undefined) {
       console.log("Current pagination is empty");
+      console.log("Creating sample pagination now.");
+      myPagination = [{
+        'name': 'Sample',
+        'url': 'sample.html'
+      }]
     }
     return myPagination;
   }
@@ -313,6 +318,15 @@ if (thisPag) {
   $('nav a[href="'+thisPag+'.html"]').addClass('active');
 }
 
+// Create dummy pagination item if "thisPag" exists, but is empty
+if (thisPag !== undefined && pagination === undefined) {
+  pagination = [{
+    'name': 'Sample',
+    'url': 'sample.html'
+  }];
+  storePagination();
+}
+
 // Populate "menuList"
 function listObjects(myObject) {
   var tempList = [];
@@ -418,8 +432,15 @@ $('#settings').delegate('#addNewPage', 'click', function() {
   var newObj = {};
   newObj['name'] = newItem;
   newObj['url'] = newUrl;
-  console.log("my test pagination = " + pagination);
-  pagination.push(newObj);
+  if (pagination === undefined) {
+    pagination = {
+      'name' : newItem,
+      'url' : newUrl
+    }
+  }
+  else {
+    pagination.push(newObj);
+  }
   storePagination();
   confirmOk();
   setTimeout(confirmRemove, 2000);
