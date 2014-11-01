@@ -164,7 +164,7 @@ function loadNav() {
         var navItem = '<a data-item="' + i + '" href="' + navigation[i].url + '">' + navigation[i].name + '</a>';
         navString = navString + navItem;
         //Navigation List String
-        var navListItem = '<li class="item-click-default" data-item="' + i + '">' + navigation[i].name + '<span class="modify-options"><span class="edit">edit</span> | <span class="remove mpc-close-btn"></span></span></li>';
+        var navListItem = '<li class="item-click-default" data-item="' + i + '"><span class="edit">' + navigation[i].name + '</span><span class="modify-options"><span class="edit underline">edit</span> | <span class="remove mpc-close-btn"></span></span></li>';
         navList = navList + navListItem;
       }
       $(this).replaceWith('<nav id="main">' + navString + '</nav>');
@@ -185,7 +185,7 @@ function loadPagination() {
           var pagItem = '<li><a data-item="' + i + '" href="' + pagination[i].url + '">' + pagination[i].name + '</a></li>';
           pagString = pagString + pagItem;
           //Navigation List String
-          var pagListItem = '<li class="item-click-default" data-item="' + i + '">' + pagination[i].name + '<span class="modify-options"><span class="edit">edit</span> | <span class="remove mpc-close-btn"></span></span></li>';
+          var pagListItem = '<li class="item-click-default" data-item="' + i + '"><span class="edit">' + pagination[i].name + '</span><span class="modify-options"><span class="edit underline">edit</span> | <span class="remove mpc-close-btn"></span></span></li>';
           pagList = pagList + pagListItem;
         }
         $(this).replaceWith('<div class="pagination-wrapper"><div class="pagination"><div id="prev" class="greyout">&lt;</div><div id="next">&gt;</div><div class="pagination-items-wrapper"><ul>' + pagString + '</ul></div></div></div>');
@@ -205,7 +205,7 @@ function addToNav() {
     var navItem = '<a data-item="' + i + '" href="' + navigation[i].url + '">' + navigation[i].name + '</a>';
     navString = navString + navItem;
     //Navigation List String
-    var navListItem = '<li class="item-click-default" data-item="' + i + '">' + navigation[i].name + '<span class="modify-options"><span class="edit">edit</span> | <span class="remove mpc-close-btn"></span></span></li>';
+    var navListItem = '<li class="item-click-default" data-item="' + i + '"><span class="edit">' + navigation[i].name + '</span><span class="modify-options"><span class="edit">edit</span> | <span class="remove mpc-close-btn"></span></span></li>';
     navList = navList + navListItem;
   }
   $('nav#main').replaceWith('<nav id="main">' + navString + '</nav>');
@@ -219,7 +219,7 @@ function addToPagination() {
     var pagItem = '<a data-item="' + i + '" href="' + pagination[i].url + '">' + pagination[i].name + '</a>';
     pagString = pagString + pagItem;
     //pagination List String
-    var pagListItem = '<li class="item-click-default" data-item="' + i + '">' + pagination[i].name + '<span class="modify-options"><span class="edit">edit</span> | <span class="remove mpc-close-btn"></span></span></li>';
+    var pagListItem = '<li class="item-click-default" data-item="' + i + '"><span class="edit">' + pagination[i].name + '</span><span class="modify-options"><span class="edit underline">edit</span> | <span class="remove mpc-close-btn"></span></span></li>';
     pagList = pagList + pagListItem;
   }
   $('pag#main').replaceWith('<pag id="main">' + pagString + '</pag>');
@@ -339,7 +339,7 @@ function listObjects(myObject) {
 var menuList = listObjects(fullNavigation);
 
 $(menuList).each(function(i) {
-  var newItem = '<li class="item-click-default" data-label="' + this + '">' + this + '<span class="modify-options"><span class="remove mpc-close-btn"></span></span></li>';
+  var newItem = '<li class="item-click-default" data-label="' + this + '"><span class="remove item-hover">' + this + '</span><span class="modify-options"><span class="remove mpc-close-btn"></span></span></li>';
   $('.menu-list ol').append(newItem);
 });
 
@@ -648,7 +648,7 @@ $('.closer').parent().delegate('.closer', 'click', function() {
 $('.collapsible.drawer').hide();
 $('.collapsible.trigger').parent().delegate('.collapsible.trigger', 'click', function() {
   $(this).next('.collapsible.drawer').slideToggle(150);
-  $('.trigger-icon', this).toggleClass('active');
+  $('.toggler-icon', this).toggleClass('active');
 });
 
 // Toggler behavior
@@ -658,12 +658,13 @@ $('.toggler').parent().delegate('.toggler', 'click', function(e) {
   var targetItem = $(this).data('target');
   var customSpeed = $(this).data('speed');
   if (customSpeed) {
-    mySpeed = customSpeed;
+    mySpeed = customSpeed;  
   }
   else {
     mySpeed = 150;
   }
   $(targetItem).slideToggle(mySpeed);
+  $('.toggler-icon', this).toggleClass('active');
 });
 
 sectionOutPagination();

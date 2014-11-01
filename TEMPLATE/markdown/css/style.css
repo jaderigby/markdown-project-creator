@@ -1,4 +1,41 @@
 /*=================================
+	ICONFONT
+==================================*/
+
+@font-face {
+	font-family: 'mpc-iconfont';
+	src:url('mpc-iconfont.eot?-9lduuv');
+	src:url('mpc-iconfont.eot?#iefix-9lduuv') format('embedded-opentype'),
+		url('mpc-iconfont.woff?-9lduuv') format('woff'),
+		url('mpc-iconfont.ttf?-9lduuv') format('truetype'),
+		url('mpc-iconfont.svg?-9lduuv#mpc-iconfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'mpc-iconfont';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-modal-icon:before {
+	content: "\e601";
+}
+.icon-dropdown-arrow:before {
+	content: "\e600";
+	margin-left: -5px;
+}
+
+/*=================================
 	COLORS
 ==================================*/
 
@@ -719,7 +756,7 @@ nav a:hover {
 	cursor: pointer;
 }
 
-#settings span.edit:hover {
+#settings span.edit.underline:hover {
 	text-decoration: underline;
 }
 
@@ -748,6 +785,28 @@ nav a:hover {
 
 .menu:hover {
 	background-color: #BBB;
+	cursor: pointer;
+}
+
+.section-title .icon-dropdown-arrow:before, .menu .icon-dropdown-arrow:before {
+	margin-left: -5px;
+}
+
+#importExport .menu {
+	padding-left: 28px;
+}
+
+.toggler-icon {
+	display: inline-block;
+}
+
+.toggler-icon.active {
+	-ms-transform: rotate(180deg) translate(5px, -3px);
+	-webkit-transform: rotate(180deg) translate(5px, -3px);
+	transform: rotote(180deg);
+}
+
+.item-hover {
 	cursor: pointer;
 }
 
